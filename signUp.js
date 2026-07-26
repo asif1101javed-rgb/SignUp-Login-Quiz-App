@@ -1,0 +1,19 @@
+var signup = document.getElementById("signup");
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+
+signup.addEventListener("click", async function(){
+    console.log(email.value, password.value);
+
+    await firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    .then((result)=>{
+        console.log(result.user.uid); // database id
+        alert("SignUp Successfully")
+        setTimeout(()=>{
+            window.location.replace("login.html")
+        },2000)
+    })
+    .catch((error)=>{
+        alert(error);
+    })
+});
