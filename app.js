@@ -77,7 +77,7 @@ var index = 0;
 var score = 0;
 var correctAnswer = 0;
 
-var min = 2;
+var min = 2
 var second = 60;
 var timer1 =setInterval(() => {
     if (second > 0) {

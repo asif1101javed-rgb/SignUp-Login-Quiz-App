@@ -1,46 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <style>
-        body{
-            text-align: center;
+
+    <title>SMIT Sign Up</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
             align-items: center;
+            padding: 20px;
+        }
+
+
+        /* SIGNUP CARD */
+
+        .signup-card {
+            width: 420px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* HEADER */
+
+        .signup-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #111827, #2563eb);
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+            background: white;
+            color: #2563eb;
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .signup-header h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .signup-header p {
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+
+        /* FORM */
+
+        .signup-content {
+            padding: 30px;
+        }
+
+        .signup-content h2 {
+            color: #111827;
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+
+        /* PROFILE IMAGE */
+
+        .image-group {
+            margin-bottom: 18px;
+        }
+
+        .image-group label {
+            display: block;
+            font-size: 12px;
+            color: #172033;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .image-upload-box {
+            border: 2px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .image-upload-box:hover {
+            border-color: #2563eb;
+            background: #f8fafc;
+        }
+
+        #imageUpload {
+            width: 100%;
+            font-size: 12px;
+        }
+
+
+        /* INPUTS */
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            color: #172033;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .input-group input {
+            width: 100%;
+            height: 45px;
+            border: 1px solid #dbe2ea;
+            border-radius: 10px;
+            padding: 0 14px;
+            font-size: 13px;
+            outline: none;
+            color: #172033;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .input-group input::placeholder {
+            color: #94a3b8;
+        }
+
+
+        /* LOADING */
+
+        #loading {
+            display: none;
+            text-align: center;
+            color: #2563eb;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+
+        /* SIGNUP BUTTON */
+
+        #signup {
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-radius: 10px;
+
+            background: linear-gradient(135deg, #111827, #2563eb);
+
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        #signup:active {
+            transform: translateY(0);
+        }
+
+
+        /* LOGIN LINK */
+
+        .login-link {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .login-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* FOOTER */
+
+        .signup-footer {
+            background: #111827;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .signup-footer span {
+            color: #60a5fa;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 450px) {
+
+            .signup-card {
+                width: 100%;
+            }
+
+            .signup-content {
+                padding: 25px 20px;
+            }
 
         }
-        #main{
-            border: 2px solid black;
-            width: 60%;
-            height: 500px;
-            align-items: center;
-            text-align: center;
-            padding-top: 20px;
-        }
-    </style> -->
+
+    </style>
+
 </head>
+
+
 <body>
 
-    <input type="email" placeholder="Enter your Email" id="email">
-    <input type="text" placeholder="Enter your Password" id="password">
-    <button id="signup">SignUp</button>
-    <a href="./login.html">Already have an Account? Login</a>
 
+    <div class="signup-card">
+
+
+        <!-- HEADER -->
+
+        <div class="signup-header">
+
+            <div class="logo">
+                SMIT
+            </div>
+
+            <h1>SMIT Hyderabad</h1>
+
+            <p>STUDENT REGISTRATION PORTAL</p>
+
+        </div>
+
+
+
+        <!-- SIGNUP FORM -->
+
+        <div class="signup-content">
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Create your student account to get started
+            </p>
+
+
+            <!-- PROFILE IMAGE -->
+
+            <div class="image-group">
+
+                <label for="imageUpload">
+                    Profile Image
+                </label>
+
+                <div class="image-upload-box">
+
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- NAME -->
+
+            <div class="input-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    id="name"
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    id="email"
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    placeholder="Enter your password"
+                    id="password"
+                >
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <b id="loading">
+                Creating your account...
+            </b>
+
+
+            <!-- SIGNUP BUTTON -->
+
+            <button id="signup">
+                Create Account
+            </button>
+
+
+            <!-- LOGIN LINK -->
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="./login.html">
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="signup-footer">
+
+            Property of <span>SMIT Hyderabad</span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- FIREBASE -->
 
     <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-database-compat.js"></script>
+
+
     <script>
+
         const firebaseConfig = {
-            apiKey: "AIzaSyDmcdJYQAEZGNoGnCdyQdaSeGzvTVFX6Tg",
-            authDomain: "quizapp-49b08.firebaseapp.com",
-            projectId: "quizapp-49b08",
-            storageBucket: "quizapp-49b08.firebasestorage.app",
-            messagingSenderId: "584735750034",
-            appId: "1:584735750034:web:098114637fc59596b5334b"
+            apiKey: "AIzaSyBw8pAT_2oOCQ5jSERPpbaqgV0NcSwEG4c",
+            authDomain: "quiz-app-a7554.firebaseapp.com",
+            databaseURL: "https://quiz-app-a7554-default-rtdb.firebaseio.com",
+            projectId: "quiz-app-a7554",
+            storageBucket: "quiz-app-a7554.firebasestorage.app",
+            messagingSenderId: "1035498201773",
+            appId: "1:1035498201773:web:50032abad26f52a8ff5c24"
         };
+
+
         firebase.initializeApp(firebaseConfig);
+
     </script>
-    <script src="./signup.js"></script>
+
+
+    <!-- SIGNUP JAVASCRIPT -->
+
+    <script src="signUp.js"></script>
+
+
 </body>
 </html>
