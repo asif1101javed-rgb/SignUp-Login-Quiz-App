@@ -1,18 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Admin Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #eef2f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ADMIN LOGIN CARD */
+
+        .login-card {
+            width: 400px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* HEADER */
+
+        .login-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #111827, #7c3aed);
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+            background: white;
+            color: #7c3aed;
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .login-header h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .login-header p {
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        /* FORM */
+
+        .login-content {
+            padding: 30px;
+        }
+
+        .login-content h2 {
+            color: #111827;
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            color: #172033;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .input-group input {
+            width: 100%;
+            height: 45px;
+            border: 1px solid #dbe2ea;
+            border-radius: 10px;
+            padding: 0 14px;
+            font-size: 13px;
+            outline: none;
+            color: #172033;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .input-group input::placeholder {
+            color: #94a3b8;
+        }
+
+        /* LOGIN BUTTON */
+
+        #login {
+            width: 100%;
+            height: 45px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #111827, #7c3aed);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        /* ADMIN INFO */
+
+        .admin-info {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .admin-info span {
+            color: #7c3aed;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        .login-footer {
+            background: #111827;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .login-footer span {
+            color: #a78bfa;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 450px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .login-card {
+                width: 100%;
+            }
+
+            .login-content {
+                padding: 25px;
+            }
+        }
+    </style>
+
 </head>
+
 <body>
 
+    <div class="login-card">
+
+        <!-- HEADER -->
+
+        <div class="login-header">
+
+            <div class="logo">
+                ADMIN
+            </div>
+
+            <h1>SMIT Admin Panel</h1>
+
+            <p>ADMINISTRATOR PORTAL</p>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <div class="login-content">
+
+            <h2>Welcome Admin</h2>
+
+            <p class="subtitle">
+                Login to access the administration panel
+            </p>
+
+
+            <div class="input-group">
+
+                <label for="email">
+                    Admin Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your Email"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="password">
+                    Admin Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your Password"
+                >
+
+            </div>
+
+
+            <button id="login" onclick="login()">
+                Login to Admin Panel
+            </button>
+
+
+            <div class="admin-info">
+                Authorized access only • <span>Admin</span>
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="login-footer">
+
+            Property of <span>SMIT Hyderabad</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- FIREBASE -->
 
     <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-database-compat.js"></script>
 
+
     <script>
+
         const firebaseConfig = {
             apiKey: "AIzaSyBw8pAT_2oOCQ5jSERPpbaqgV0NcSwEG4c",
             authDomain: "quiz-app-a7554.firebaseapp.com",
@@ -22,8 +290,14 @@
             messagingSenderId: "1035498201773",
             appId: "1:1035498201773:web:50032abad26f52a8ff5c24"
         };
+
         firebase.initializeApp(firebaseConfig);
+
     </script>
+
+
     <script src="admin.js"></script>
+
 </body>
+
 </html>

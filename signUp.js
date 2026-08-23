@@ -17,7 +17,8 @@ signup.addEventListener("click", async function () {
                     email: email.value,
                     password: password.value,
                     name: username.value,
-                    image : imageUrl
+                    image : imageUrl,
+                    createdAt: firebase.database.ServerValue.TIMESTAMP
                 })
                 alert("SignUp Successfully")
                 setTimeout(() => {

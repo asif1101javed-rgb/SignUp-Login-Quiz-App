@@ -1,3 +1,5 @@
+// Create Admin or Admin SignUp
+
 // async function createAdminFirst(){
 //     // var adminKey = await firebase.database().ref("admin").
 //     await firebase.auth().createUserWithEmailAndPassword("admin@admin.com" , "admin1234")
@@ -13,3 +15,19 @@
 //     })
 // }
 
+
+async function login(){
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    await firebase.auth().signInWithEmailAndPassword(email.value ,password.value)
+    .then((snap)=>{
+        console.log(snap.user.uid)
+        localStorage.setItem("admin",true);
+        localStorage.setItem("userid",snap.user.uid);
+
+        console.log(snap.user.uid);
+    })
+    .catch((e)=>{
+        console.log(e);
+    })
+}
