@@ -147,6 +147,13 @@
             border-collapse: collapse;
         }
 
+        .hide{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+
         th,
         td {
             padding: 14px;
@@ -249,7 +256,7 @@
                 </li>
 
                 <li>
-                    <a href="#">📚 Courses</a>
+                    <a href="./courses.html">📚 Courses</a>
                 </li>
 
                 <li>
@@ -271,7 +278,6 @@
 
         </aside>
 
-
         <!-- Main Content -->
         <main class="main">
 
@@ -289,16 +295,17 @@
 
             </div>
 
-
             <!-- Dashboard Cards -->
-           
+
+            <div id="loading" style="text-align: center;">
+                <img 
+               style="width: 250px;height: 200px;" 
+            src="https://ajsupport.com/wp-content/uploads/2020/05/Spin-Preloader.gif" alt="">
+            </div>
 
             <!-- Recent Students -->
-            <section class="table-box">
-               
-
+            <section class="table-box hide" id="maintable" >
                 <table >
-
                     <thead>
                         <tr>
                             <th>S.no</th>
@@ -311,20 +318,11 @@
 
                     <tbody id="users">
 
-                       
-
-                      
                     </tbody>
-
                 </table>
-
             </section>
-
         </main>
-
     </div>
-
-    
 
        <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.16.0/firebase-auth-compat.js"></script>
@@ -343,9 +341,7 @@
         firebase.initializeApp(firebaseConfig);
     </script>
 
-
 <script src="students.js"></script>
 
 </body>
-
 </html>

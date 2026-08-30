@@ -26,6 +26,7 @@ async function login(){
         localStorage.setItem("userid",snap.user.uid);
 
         console.log(snap.user.uid);
+        window.location.href="./dashboard.html"
     })
     .catch((e)=>{
         console.log(e);
