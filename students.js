@@ -1,5 +1,4 @@
 var users = document.getElementById("users")
-
 var loading = document.getElementById("loading")
 var maintable = document.getElementById("maintable")
 

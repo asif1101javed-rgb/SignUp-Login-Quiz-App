@@ -1,7 +1,8 @@
-var courseName = document.getElementById("courseName")
-var courseduration = document.getElementById("courseduration")
-var coursefee = document.getElementById("coursefee")
-var courseTable = document.getElementById("courseTable")
+var courseName = document.getElementById("courseName");
+var courseduration = document.getElementById("courseduration");
+var coursefee = document.getElementById("coursefee");
+var courseTable = document.getElementById("courseTable");
+var maintable = document.getElementById("maintable");
 
 
 
@@ -47,6 +48,10 @@ async function getAllCourse() {
      courseTable.innerHTML=""
     await firebase.database().ref("course").get().then((db) => { 
         console.log(db.val()) //human read
+        if (db.val() == null) {
+            users.innerHTML = "<td colspan='5' style='text-align:center'><h1>No user found</h1></td>"
+            return
+        }
         var data = Object.values(db.val()) //convert array
         console.log(data)
         for(var i=0;i<data.length;i++){
